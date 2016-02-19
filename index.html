@@ -6,6 +6,9 @@
 
     <title>Discret Analog Time</title>
 
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -13,7 +16,6 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 
     <style>
         @font-face {
@@ -44,6 +46,12 @@
             border-color: whitesmoke;
             min-width: 195px;
             max-width: 325px;
+        }
+        
+        .col-xs-12 {
+            background-color: lightblue;
+            border: 5px solid;
+            border-color: whitesmoke;
         }
         
         h4 {
@@ -101,7 +109,7 @@
             <h4>The Wedding Photographer</h4>
             <h5>婚礼摄影师</h5>
             <ul>
-                <li><a href="#">Part I</a></li>
+                <li><a id="wedB" title="" href="#" onclick="wedB_pop();return false;">Part I</a></li>
                 <li><a href="#">Part II</a></li>
                 <li><a href="#">Part III</a></li>
                 <li><a href="#">Part IV</a></li>
@@ -117,6 +125,26 @@
         </div>
     </div>
 
+    <div class="row" id="DynamicContent">
+
+
+    </div>
+    <button onclick="myFunction()">Try it</button>
+
+    <script>
+        function wedB_pop() {
+            var ddiv = document.createElement("div");
+            ddiv.className = "col-xs-12 column clear";
+
+            jQuery.get('./blogs/wed/P1.txt', function (data) {
+                //    alert(data);
+                ddiv.innerHTML = data;
+            });
+            var t = document.createTextNode("This is a paragraph.");
+
+            document.getElementById("DynamicContent").appendChild(ddiv);
+        }
+    </script>
 
     <!--<img src='./gen_src/original_1uUL_412a000022c2118e.jpg'>-->
 </body>
