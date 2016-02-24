@@ -17,84 +17,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <style>
-        @font-face {
-            font-family: Puff;
-            src: url(./gen_src/SentyCreamPuff.ttf);
-        }
-        
-        @font-face {
-            font-family: Paskowy;
-            src: url(./gen_src/Paskowy.ttf);
-        }
-        
-        div.c {
-            border: 5px solid;
-            border-color: lightblue;
-            padding: 5px;
-        }
-        
-        .col-xs-6,
-        .col-xs-2,
-        .col-xs-4,
-        .col-xs-1,
-        .col-xs-3,
-        .col-xs-5,
-        .col-xs {
-            background-color: lightblue;
-            border: 5px solid;
-            border-color: whitesmoke;
-            min-width: 195px;
-            max-width: 325px;
-        }
-        
-        .col-xs-12 {
-            background-color: lightblue;
-            border: 5px solid;
-            border-color: whitesmoke;
-        }
-        
-        h4 {
-            font-family: Puff;
-        }
-        
-        h5 {
-            text-align: right;
-            font-family: Puff;
-        }
-        
-        #header {
-            background-color: lightblue;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            font-size: 42px;
-            font-family: Paskowy;
-        }
-        
-        #nav {
-            line-height: 30px;
-            background-color: #eeeeee;
-            height: 300px;
-            width: 100px;
-            float: left;
-            padding: 5px;
-        }
-        
-        #section {
-            width: 350px;
-            float: left;
-            padding: 10px;
-        }
-        
-        #footer {
-            background-color: black;
-            color: white;
-            clear: both;
-            text-align: center;
-            padding: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="./gen_src/style_v1.css">
+
 
 
 
@@ -109,15 +33,20 @@
             <h4>The Wedding Photographer</h4>
             <h5>婚礼摄影师</h5>
             <ul>
-                <li><a id="wedB" title="" href="#" onclick="wedB_pop();return false;">Part I</a></li>
-                <li><a href="#">Part II</a></li>
-                <li><a href="#">Part III</a></li>
-                <li><a href="#">Part IV</a></li>
+                <li><a id="wedB" title="" href="#" onclick="wedB_pop(1);return false;">Part I</a></li>
+                <li><a id="wedB" title="" href="#" onclick="wedB_pop(1);return false;">Part II</a></li>
+                <li><a id="wedB" title="" href="#" onclick="wedB_pop(1);return false;">Part III</a></li>
+                <li><a id="wedB" title="" href="#" onclick="wedB_pop(1);return false;">Part IV</a></li>
+
             </ul>
         </div>
         <div class="col-xs-2 column clear">
             <h4>Glasses and Stuffs</h4>
+            <h5>没有钱买的器材</h5>
+            <ul>
+                <li><a href="#" onclick="gen_blog_pop('blogs\\gla','新的一波产品袭来');return false;">新的一波产品袭来</a></li>
 
+            </ul>
         </div>
         <div class="col-xs-2 column clear">
             <h4>Look at me</h4>
@@ -129,19 +58,30 @@
 
 
     </div>
-    <button onclick="myFunction()">Try it</button>
-
+    <!--<button onclick="myFunction()">Try it</button>
+-->
     <script>
-        function wedB_pop() {
+        function gen_blog_pop(local_url, name) {
+            alert(local_url);
+            alert(name);
             var ddiv = document.createElement("div");
             ddiv.className = "col-xs-12 column clear";
 
-            jQuery.get('./blogs/wed/P1.txt', function (data) {
+            jQuery.get('./blogs/wed/P' + p + '.txt', function (data) {
                 //    alert(data);
                 ddiv.innerHTML = data;
             });
-            var t = document.createTextNode("This is a paragraph.");
+            document.getElementById("DynamicContent").appendChild(ddiv);
+        }
 
+        function wedB_pop(p) {
+            var ddiv = document.createElement("div");
+            ddiv.className = "col-xs-12 column clear";
+
+            jQuery.get('./blogs/wed/P' + p + '.txt', function (data) {
+                //    alert(data);
+                ddiv.innerHTML = data;
+            });
             document.getElementById("DynamicContent").appendChild(ddiv);
         }
     </script>
