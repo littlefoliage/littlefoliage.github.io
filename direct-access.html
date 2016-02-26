@@ -16,6 +16,8 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./gen_src/style_v1.css">
+
 
 
 </head>
@@ -38,7 +40,7 @@
             });
             document.getElementById("DynamicContent").appendChild(ddiv);
 
-            alert(getParameterByName('lalala'));
+            //alert(getParameterByName('lalala'));
         });
 
         function getParameterByName(name, url) {
@@ -52,9 +54,6 @@
         }
 
         // query string: ?foo=lorem&bar=&baz
-        //  var foo = getParameterByName('foo'); // "lorem"
-        //var bar = getParameterByName('bar'); // "" (present with empty value)
-        //var baz = getParameterByName('baz'); // "" (present with no value)
         //var qux = getParameterByName('qux'); // null (absent)
     </script>
 
