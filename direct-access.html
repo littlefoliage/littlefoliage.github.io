@@ -31,15 +31,15 @@
 
     <script>
         $(document).ready(function () {
-            var cat=getParameterByName('path');
-			var item=getParameterByName('item')
-			
-			var ddiv = document.createElement("div");
-			//alert('./'+cat+'/'+item);
+            var cat = getParameterByName('path');
+            var item = getParameterByName('item')
+
+            var ddiv = document.createElement("div");
+            alert('./' + cat + '/' + item);
             ddiv.className = "col-xs-12 column clear";
 
-            jQuery.get('./'+cat+'/'+item, function (data) {
-                    alert(data);
+            jQuery.get('./' + cat + '/' + item, function (data) {
+                //alert(data);
                 ddiv.innerHTML = data;
             });
             document.getElementById("DynamicContent").appendChild(ddiv);
