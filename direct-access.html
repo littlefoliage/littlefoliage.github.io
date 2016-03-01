@@ -36,14 +36,14 @@
 
             var ddiv = document.createElement("div");
             //alert('./' + cat + '/' + item);
-            ddiv.className = "col-xs-12 column clear";
+            ddiv.className = "col-xs-12 column clear"; //
 
             jQuery.get('./' + cat + '/' + item, function (data) {
                 //alert(data);
                 ddiv.innerHTML = data;
             });
             document.getElementById("DynamicContent").appendChild(ddiv);
-
+            document.title = item + " @Discret Analog Time";
             //alert(getParameterByName('lalala'));
         });
 
