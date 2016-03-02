@@ -44,7 +44,7 @@
             <h4>Glasses and Stuffs</h4>
             <h5>没有钱买的器材</h5>
             <ul>
-                <li><a href="#" onclick="gen_blog_pop('blogs\\gla','新的一波产品袭来');return false;">新的一波产品袭来</a></li>
+                <li><a href="#" onclick="gen_blog_pop('./blogs/gla/','新的一波产品袭来');return false;">新的一波产品袭来</a></li>
 
             </ul>
         </div>
@@ -62,12 +62,12 @@
 -->
     <script>
         function gen_blog_pop(local_url, name) {
-            alert(local_url);
-            alert(name);
+            //alert(local_url);
+            alert(local_url + name);
             var ddiv = document.createElement("div");
             ddiv.className = "col-xs-12 column clear";
 
-            jQuery.get('./blogs/wed/P' + p + '.txt', function (data) {
+            jQuery.get(local_url + name, function (data) {
                 //    alert(data);
                 ddiv.innerHTML = data;
             });
